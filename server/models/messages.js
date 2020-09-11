@@ -13,7 +13,7 @@ module.exports = {
   }, // a function which produces all the messages
 
   create: function (callback, parameters) {
-    var qString = "INSERT INTO messages(userMessage, user_id) VALUES (?, (SELECT users.id FROM users WHERE users.username = (?)) )"
+    var qString = "INSERT INTO messages(userMessage, username_id) VALUES (?, (SELECT users.id FROM users WHERE users.username = (?)) )"
     dbConnect.query(qString, (err, parameters, results) => {
       if (err) {
         throw err;
